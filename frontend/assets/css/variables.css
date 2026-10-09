@@ -1,0 +1,12 @@
+:root {
+  --color-navy: #102235;
+  --color-cyan: #00b8c4;
+  --color-teal: #078b91;
+  --color-gold: #f5c451;
+  --color-text: #1f2937;
+  --color-muted: #64748b;
+  --color-surface: #fff;
+  --color-page: #f3f7fa;
+  --radius: 16px;
+  --shadow: 0 16px 40px rgba(16, 34, 53, .10);
+}

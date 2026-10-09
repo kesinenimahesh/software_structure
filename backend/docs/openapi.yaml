@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: Skill Tech Local API
+  version: 1.0.0
+  description: Starter API contract. Merge the original OpenAPI definition before release.
+servers:
+  - url: http://127.0.0.1:4317/api
+paths:
+  /health:
+    get:
+      summary: Check API status and database connectivity
+      responses:
+        "200": { description: API health status }
+  /contact:
+    post:
+      summary: Store a contact message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, message]
+              properties:
+                name: { type: string, maxLength: 120 }
+                email: { type: string, maxLength: 254 }
+                message: { type: string, maxLength: 5000 }
+      responses:
+        "201": { description: Message saved }
+        "400": { description: Invalid request }

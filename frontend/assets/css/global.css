@@ -1,0 +1,9 @@
+body { background: var(--color-page); color: var(--color-text); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+a { color: var(--color-teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.hero { margin: 48px 0; padding: clamp(28px, 6vw, 72px); border-radius: var(--radius); background: linear-gradient(135deg, var(--color-navy), #17465a); color: white; box-shadow: var(--shadow); }
+.hero h1 { margin: 10px 0 16px; font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.1; }
+.hero p { max-width: 700px; color: #e1edf3; }
+.eyebrow { font-size: .78rem; letter-spacing: .14em; font-weight: 700; color: var(--color-gold) !important; }
+.status { display: inline-block; margin-top: 24px; padding: 8px 12px; border: 1px solid #ffffff55; border-radius: 999px; }

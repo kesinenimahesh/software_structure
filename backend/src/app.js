@@ -1,0 +1,17 @@
+"use strict";
+const express = require("express");
+const helmet = require("helmet");
+const healthRoutes = require("./routes/health.routes");
+const contactRoutes = require("./routes/contact.routes");
+const { notFound } = require("./middleware/not-found");
+const { errorHandler } = require("./middleware/error-handler");
+const app = express();
+app.disable("x-powered-by");
+app.use(helmet());
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: false, limit: "1mb" }));
+app.use("/api/health", healthRoutes);
+app.use("/api/contact", contactRoutes);
+app.use(notFound);
+app.use(errorHandler);
+module.exports = app;

@@ -1,0 +1,8 @@
+.site-header { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px max(20px, calc((100% - 1120px)/2)); background:var(--color-surface); border-bottom:1px solid #e2e8f0; }
+.brand { display:flex; align-items:center; gap:12px; color:var(--color-navy); }
+.brand-mark { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:var(--color-cyan); color:var(--color-navy); font-weight:900; }
+.brand strong,.brand small { display:block; line-height:1.2; }
+.brand small { margin-top:4px; color:var(--color-muted); font-size:.68rem; letter-spacing:.08em; }
+nav { display:flex; gap:20px; flex-wrap:wrap; }
+nav a { color:var(--color-navy); font-weight:600; }
+.site-footer { padding:24px; text-align:center; color:var(--color-muted); }

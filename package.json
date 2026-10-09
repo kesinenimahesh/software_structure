@@ -1,0 +1,62 @@
+{
+  "name": "skill-tech-software-solutions-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Skill Tech Software Solutions offline Windows desktop application",
+  "main": "desktop/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:backend\" \"npm:dev:desktop\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:desktop": "wait-on http://127.0.0.1:4317/api/health && electron .",
+    "build:win": "electron-builder --win nsis",
+    "check:structure": "node scripts/check-structure.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.12",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.skilltechsoftwaresolutions.desktop",
+    "productName": "Skill Tech Software Solutions",
+    "directories": {
+      "buildResources": "installer/assets",
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "frontend/**/*",
+      "backend/src/**/*",
+      "backend/database/**/*",
+      "backend/package.json",
+      "backend/package-lock.json",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/node_modules",
+        "to": "backend/node_modules",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "installer/runtime",
+        "to": "runtime",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "installer/assets/Skill-Tech-Logo.ico",
+      "artifactName": "Skill-Tech-Setup-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Skill Tech Software Solutions",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
